@@ -1,0 +1,10 @@
+#!/bin/bash -eu
+
+set -o pipefail
+IFS=$'\n\t'
+
+cd "$(dirname "$(readlink -f "${BASH_SOURCE[0]}")")"
+
+make --silent
+
+./bin/Release/*/publish/fourcc "$@"
